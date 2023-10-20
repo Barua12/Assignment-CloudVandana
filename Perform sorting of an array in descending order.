@@ -1,0 +1,10 @@
+let numElements = parseInt(prompt("Enter the number of elements you want in the array:"));
+let arr = [];
+for (let i = 0; i < numElements; i++) {
+    let element = parseInt(prompt("Enter element " + (i+1) + ":"));
+    arr.push(element);
+}
+arr.sort(function(a, b) {
+    return b - a;
+});
+alert("Sorted array in descending order: " + arr.join(', '));
