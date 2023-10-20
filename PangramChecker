@@ -1,0 +1,42 @@
+import java.util.*;
+public class PangramChecker {
+
+    public static boolean isPangram(String sentence) {
+        boolean[] alpha = new boolean[26];
+        int Count = 0;
+
+        for (int i = 0; i < sentence.length(); i++) {
+            char currentChar = sentence.charAt(i);
+
+            if (currentChar >= 'A' && currentChar <= 'Z') {
+                if (!alpha[currentChar - 'A']) { 
+                    alpha[currentChar - 'A'] = true;
+                    Count++;
+                }
+            } else if (currentChar >= 'a' && currentChar <= 'z') {
+                if (!alpha[currentChar - 'a']) { 
+                    alpha[currentChar - 'a'] = true;
+                    Count++;
+                }
+            }
+
+            if (Count == 26) { 
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a sentence:");
+        String input = sc.nextLine();
+        if (isPangram(input)) {
+            System.out.println("The sentence is a pangram.");
+        } else {
+            System.out.println("The sentence is not a pangram.");
+        }
+        sc.close();
+    }
+}
